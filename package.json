@@ -1,5 +1,5 @@
 {
-  "name": "node-react-starter",
+  "name": "graphql-starter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,22 +7,31 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
     "client-build": "npm run build --prefix client",
-    "server": "nodemon index.js",
+    "server": "nodemon --exec babel-node index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "prod": "NODE_ENV=production concurrently --kill-others-on-fail \"npm run server\" \"npm run client-build\"",
-    "start": "node index.js",
+    "start": "nodemon --exec babel-node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
     "concurrently": "^5.0.0",
     "nodemon": "^2.0.1"
   },
   "dependencies": {
+    "apollo-server": "^2.9.13",
+    "apollo-server-express": "^2.9.13",
+    "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.13"
   }
 }
