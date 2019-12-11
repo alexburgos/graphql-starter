@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import { ApolloServer } from 'apollo-server-express';
 import schemas from './schemas';
 import resolvers from './resolvers';
-import bookModel from './models/bookModel';
+import bookModel from './models/bookModel.js';
 
 const app = express();
 app.use(cors());

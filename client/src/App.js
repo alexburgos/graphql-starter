@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react';
-
-// SERVICES
-import productService from './services/';
+import bookService from './services/';
 
 function App() {
-	const [products, setproducts] = useState(null);
+	const [books, setBooks] = useState(null);
 
 	useEffect(() => {
-		if (!products) {
-			getProducts();
+		if (!books) {
+			getBooks();
 		}
 	});
 
-	const getProducts = async () => {
-		let res = await productService.getAll();
-		// console.log(res);
-		setproducts(res);
+	const getBooks = async () => {
+		let res = await bookService.getAll();
+		setBooks(res);
 	};
 
-	const renderProduct = product => {
+	const renderBook = book => {
 		return (
-			<li key={product._id} className="list__item product">
-				<h3 className="product__name">{product.name}</h3>
-				<p className="product__description">{product.description}</p>
+			<li key={book._id} className="list__item book">
+				<h3 className="book__name">{book.title}</h3>
+				<p className="book__description">{book.author}</p>
 			</li>
 		);
 	};
@@ -30,10 +27,10 @@ function App() {
 	return (
 		<div className="App">
 			<ul className="list">
-				{products && products.length > 0 ? (
-					products.map(product => renderProduct(product))
+				{books && books.length > 0 ? (
+					books.map(book => renderBook(book))
 				) : (
-					<p>No products found</p>
+					<p>No books found</p>
 				)}
 			</ul>
 		</div>
