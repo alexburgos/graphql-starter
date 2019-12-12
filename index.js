@@ -37,9 +37,14 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-	mongoose.connect('mongodb://localhost:27017/graphql', {
-		useCreateIndex: true,
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	});
+	mongoose.connect(
+		process.env.MONGODB_URI || `mongodb://localhost:27017/graphql`,
+		{
+			useCreateIndex: true,
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		}
+	);
+
+	console.log(`app running on port: ${PORT}`);
 });
