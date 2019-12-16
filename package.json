@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
     "client-build": "npm run build --prefix client",
-    "server": "node --exec babel-node index.js",
+    "server": "babel-node index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "prod": "NODE_ENV=production concurrently --kill-others-on-fail \"npm run server\" \"npm run client-build\"",
-    "start": "node --exec babel-node index.js",
+    "start": "nodemon --exec babel-node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
