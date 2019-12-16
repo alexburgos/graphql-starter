@@ -3,9 +3,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import { ApolloServer } from 'apollo-server-express';
-import schemas from './schemas';
-import resolvers from './resolvers';
-import bookModel from './models/bookModel.js';
+import schemas from '../schemas/index';
+import resolvers from '../resolvers/index';
+import bookModel from '../models/bookModel.js';
 
 const app = express();
 app.use(cors());
